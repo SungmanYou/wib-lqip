@@ -1,0 +1,12 @@
+{
+  "name": "wib-lqip",
+  "version": "1.0.0",
+  "description": "WIB - Low quality image placeholder supports",
+  "main": "index.js",
+  "repository": "https://github.com/SungmanYou/wib-lqip",
+  "author": "SungmanYou <sungman.you@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lazysizes": "^4.1.7"
+  }
+}
