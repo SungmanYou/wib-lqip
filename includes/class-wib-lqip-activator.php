@@ -20,17 +20,12 @@
  * @subpackage Wib_Lqip/includes
  * @author     Sungman You <sungman.you@gmail.com>
  */
-class Wib_Lqip_Activator {
-
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function activate() {
-
-	}
-
+class Wib_Lqip_Activator
+{
+    /**
+     * @since    1.0.0
+     */
+    public static function activate()
+    {
+    }
 }

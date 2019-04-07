@@ -8,5 +8,9 @@
   "license": "MIT",
   "dependencies": {
     "lazysizes": "^4.1.7"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.12.0"
   }
 }
