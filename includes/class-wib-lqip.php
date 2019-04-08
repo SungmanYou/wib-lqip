@@ -32,6 +32,7 @@ class Wib_Lqip
         $this->loader->add_filter('wp_generate_attachment_metadata', $plugin_admin, 'generate_attachment_metadata', 10, 2);
     }
     public function run() {$this->loader->run();}
+    
     public function get_plugin_name() {return $this->plugin_name;}
     public function get_loader() {return $this->loader;}
     public function get_version() {return $this->version;}
