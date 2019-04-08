@@ -19,11 +19,6 @@ class Wib_Lqip_Admin
         $this->plugin_name = $plugin_name;
         $this->version = $version;
     }
-    public function add_lqip_image_sizes()
-    {
-        add_image_size('lqip', 50, 0, false);
-        add_image_size('lqip_square', 50, 50, true);
-    }
     public function add_lqip_theme_support()
     {
         add_theme_support('lqip');
@@ -56,7 +51,6 @@ class Wib_Lqip_Admin
 
         if (preg_match('!^image/!', get_post_mime_type($attachment_id)) && file_is_displayable_image($file)) {
             $path_parts = pathinfo($file);
-
             foreach ($image_sizes as $size) {
                 if (isset($metadata['sizes'][$size])) {
                     $width = isset($_wp_additional_image_sizes[$size]['width']) ? intval($_wp_additional_image_sizes[$size]['width']) : get_option("{$size}_size_w");
