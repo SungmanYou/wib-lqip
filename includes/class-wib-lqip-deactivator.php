@@ -1,15 +1,4 @@
 <?php
-
-/**
- * Fired during plugin deactivation
- *
- * @link       https://github.com/SungmanYou
- * @since      1.0.0
- *
- * @package    Wib_Lqip
- * @subpackage Wib_Lqip/includes
- */
-
 /**
  * Fired during plugin deactivation.
  *
@@ -19,18 +8,12 @@
  * @package    Wib_Lqip
  * @subpackage Wib_Lqip/includes
  * @author     Sungman You <sungman.you@gmail.com>
+ * @link       https://github.com/SungmanYou
  */
-class Wib_Lqip_Deactivator {
-
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function deactivate() {
-
-	}
-
+class Wib_Lqip_Deactivator
+{
+    public static function deactivate()
+    {
+        delete_option('wib_lqip_quality');
+    }
 }

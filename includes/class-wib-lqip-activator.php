@@ -1,15 +1,4 @@
 <?php
-
-/**
- * Fired during plugin activation
- *
- * @link       https://github.com/SungmanYou
- * @since      1.0.0
- *
- * @package    Wib_Lqip
- * @subpackage Wib_Lqip/includes
- */
-
 /**
  * Fired during plugin activation.
  *
@@ -19,13 +8,12 @@
  * @package    Wib_Lqip
  * @subpackage Wib_Lqip/includes
  * @author     Sungman You <sungman.you@gmail.com>
+ * @link       https://github.com/SungmanYou
  */
 class Wib_Lqip_Activator
 {
-    /**
-     * @since    1.0.0
-     */
     public static function activate()
     {
+        update_option('wib_lqip_quality', 1, 'yes');
     }
 }

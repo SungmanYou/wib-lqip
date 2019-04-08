@@ -6,9 +6,7 @@
   "repository": "https://github.com/SungmanYou/wib-lqip",
   "author": "SungmanYou <sungman.you@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "lazysizes": "^4.1.7"
-  },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.12.0"

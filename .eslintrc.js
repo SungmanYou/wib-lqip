@@ -1,3 +1,13 @@
 module.exports = {
-    "extends": "google"
+    "extends": "google",
+    'globals': {
+        'wp': true,
+    },
+    'env': {
+        'node': true,
+        'jquery': true,
+    },
+    'rules': {
+        'indent': 'off'
+    }
 };
