@@ -14,6 +14,5 @@ class Wib_Lqip_Deactivator
 {
     public static function deactivate()
     {
-        delete_option('wib_lqip_quality');
     }
 }
