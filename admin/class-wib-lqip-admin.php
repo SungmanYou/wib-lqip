@@ -19,11 +19,11 @@ class Wib_Lqip_Admin
         $this->plugin_name = $plugin_name;
         $this->version = $version;
     }
-    public function add_lqip_image_sizes()
-    {
-        add_image_size('lqip', 50, 0, false);
-        add_image_size('lqip_square', 50, 50, true);
-    }
+    // public function add_lqip_image_sizes()
+    // {
+    //     add_image_size('lqip', 50, 0, false);
+    //     add_image_size('lqip_square', 50, 50, true);
+    // }
     public function add_lqip_theme_support()
     {
         add_theme_support('lqip');
