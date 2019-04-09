@@ -29,6 +29,7 @@ class Wib_Lqip
     {
         $plugin_admin = new Wib_Lqip_Admin($this->get_plugin_name(), $this->get_version());
         $this->loader->add_action('after_setup_theme', $plugin_admin, 'add_lqip_theme_support');
+        $this->loader->add_filter('wp_handle_upload', $plugin_admin, 'check_image_type');
         $this->loader->add_filter('wp_generate_attachment_metadata', $plugin_admin, 'generate_attachment_metadata', 10, 2);
     }
     public function run() {$this->loader->run();}
