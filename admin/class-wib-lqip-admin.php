@@ -35,7 +35,7 @@ class Wib_Lqip_Admin
         } while (file_exists($new_path));
         if (!file_exists($new_path)) {
             $new_url = preg_replace("/\.png$/", "." . $new_ext, $params['url']);
-            $quality = apply_filters('wib_lqip_jpg_quality', 100);
+            $quality = apply_filters('wib_lqip_png_to_jpg_quality', 100);
             if (imagejpeg($bg, $new_path, $quality)) {
                 $stats_after = $stats_before - filesize($new_path);
                 unlink($params['file']); // Remove original file
