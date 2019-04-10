@@ -19,6 +19,7 @@ class Wib_Lqip
     }
     private function define_hooks()
     {
+        add_action('after_setup_theme', [$this, 'add_image_sizes']);
         add_filter('wp_handle_upload', [$this, 'check_image_type']);
         add_filter('wp_generate_attachment_metadata', [$this, 'generate_attachment_metadata'], 10, 2);
     }
@@ -51,6 +52,12 @@ class Wib_Lqip
         return 0;
     }
 
+    public function add_image_sizes()
+    {
+        add_image_size('lqip', 50, 50, true);
+        add_image_size('lqip_square', 50, 0, false);
+    }
+
     public function check_image_type($params)
     {
         switch (true) {
@@ -68,8 +75,9 @@ class Wib_Lqip
     {
         global $_wp_theme_features;
         global $_wp_additional_image_sizes;
-        $image_sizes = apply_filters('intermediate_image_sizes_advanced', get_intermediate_image_sizes());
-        $quality = apply_filters('wib_lqip_placeholder_quality', 1);
+        // $image_sizes = apply_filters('intermediate_image_sizes_advanced', get_intermediate_image_sizes());
+        $image_sizes = ['lqip', 'lqip_square'];
+        $quality = apply_filters('wib_lqip_placeholder_quality', 25);
         $filepath = get_attached_file($attachment_id);
         $pathinfo = pathinfo($filepath);
         if (preg_match('!^image/!', get_post_mime_type($attachment_id)) && file_is_displayable_image($filepath)) {
@@ -78,16 +86,11 @@ class Wib_Lqip
                     $width = isset($_wp_additional_image_sizes[$size]['width']) ? intval($_wp_additional_image_sizes[$size]['width']) : get_option("{$size}_size_w");
                     $height = isset($_wp_additional_image_sizes[$size]['height']) ? intval($_wp_additional_image_sizes[$size]['height']) : get_option("{$size}_size_h");
                     $crop = isset($_wp_additional_image_sizes[$size]['crop']) ? intval($_wp_additional_image_sizes[$size]['crop']) : get_option("{$size}_crop");
-                    $new_size = $size . '-lqip';
-                    $filename = str_replace('.' . $pathinfo['extension'], '-lqip.' . $pathinfo['extension'], $metadata['sizes'][$size]['file']);
+                    $filename = $metadata['sizes'][$size]['file'];
                     $image = wp_get_image_editor($filepath);
                     $image->resize($width, $height, $crop);
                     $image->set_quality($quality);
                     $image->save($pathinfo['dirname'] . '/' . $filename);
-                    if (!is_wp_error($image)) {
-                        $metadata['sizes'][$new_size] = $metadata['sizes'][$size];
-                        $metadata['sizes'][$new_size]['file'] = $filename;
-                    }
                 }
             }
         }
