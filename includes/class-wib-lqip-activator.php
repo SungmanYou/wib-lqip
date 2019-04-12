@@ -14,6 +14,5 @@ class Wib_Lqip_Activator
 {
     public static function activate()
     {
-        update_option('wib_lqip_quality', 1, 'yes');
     }
 }

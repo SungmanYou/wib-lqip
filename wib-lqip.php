@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       WIB - LQIP
  * Plugin URI:        https://github.com/SungmanYou/wib-lqip
- * Description:       WIB - Low quality image placeholder supports
+ * Description:       WIB - LQIP (Low Quality Image Placeholder) Support
  * Version:           1.0.0
  * Author:            Sungman You
  * Author URI:        https://github.com/SungmanYou

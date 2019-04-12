@@ -19,27 +19,17 @@ class Wib_Lqip_Admin
         $this->plugin_name = $plugin_name;
         $this->version = $version;
     }
+<<<<<<< HEAD
     // public function add_lqip_image_sizes()
     // {
     //     add_image_size('lqip', 50, 0, false);
     //     add_image_size('lqip_square', 50, 50, true);
     // }
+=======
+>>>>>>> 57097087d0c8d60dde358b093be76cd234badb9e
     public function add_lqip_theme_support()
     {
         add_theme_support('lqip');
-    }
-    public function add_admin_menu()
-    {
-        add_options_page('WIB - LQIP', 'WIB - LQIP', 'manage_options', $this->plugin_name, function () {
-            include (plugin_dir_path(__FILE__) . 'partials/wib-lqip-admin-display.php');
-        });
-    }
-    public function register_settings()
-    {
-        $settings = array_merge(['wib_lqip_quality'], []);
-        foreach ($settings as $setting) {
-            register_setting("{$this->plugin_name}-settings-group", $setting);
-        }
     }
     public function generate_attachment_metadata($metadata, $attachment_id)
     {
@@ -52,11 +42,10 @@ class Wib_Lqip_Admin
         ? $_wp_theme_features['lqip'][0]
         : apply_filters('intermediate_image_sizes_advanced', get_intermediate_image_sizes());
         $file = get_attached_file($attachment_id);
-        $quality = get_option('wib_lqip_quality', 1);
+        $quality = apply_filters('lqip_quality', 1);
 
         if (preg_match('!^image/!', get_post_mime_type($attachment_id)) && file_is_displayable_image($file)) {
             $path_parts = pathinfo($file);
-
             foreach ($image_sizes as $size) {
                 if (isset($metadata['sizes'][$size])) {
                     $width = isset($_wp_additional_image_sizes[$size]['width']) ? intval($_wp_additional_image_sizes[$size]['width']) : get_option("{$size}_size_w");
