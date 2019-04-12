@@ -54,8 +54,8 @@ class Wib_Lqip
 
     public function add_image_sizes()
     {
-        add_image_size('lqip', 50, 50, true);
-        add_image_size('lqip_square', 50, 0, false);
+        add_image_size('lqip', 50, 0, false);
+        add_image_size('lqip_square', 50, 50, true);
     }
 
     public function check_image_type($params)
